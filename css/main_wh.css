@@ -11,10 +11,10 @@ body {
     min-width:none;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 18px;
-    line-height: 0.1em;
+    line-height: 1.5em;
     color: #333333;
     background-color: #ffffff;
-    -webkit-box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
 }

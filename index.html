@@ -1,100 +1,221 @@
-
 <!DOCTYPE html>
 <html>
 
     <head>
         <meta charset="utf-8">
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Hui Wei</title>
-        <link rel="stylesheet" href="../css/main_wh.css">
+        <link rel="stylesheet" href="css/main_wh.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
         <style>
             .styled-link {
-              font-size: 14px; /* 设置字体大小为14像素 */
-              color: #3498db; /* 设置链接颜色为蓝色 */
-              text-decoration: none; /* 去除下划线 */
-              font-weight: bold;
-              padding: 5px 10px; /* 添加内边距，增加点击区域 */
-              background-color: #ecf0f1; /* 设置背景颜色为淡蓝色 */
-              border-radius: 5px; /* 圆角边框 */
-              transition: background-color 0.3s ease, color 0.3s ease; /* 添加颜色和背景颜色过渡效果 */
+              font-size: 13px;
+              color: #5183f5;
+              text-decoration: none;
+              font-weight: 500;
+              padding: 0.2em 0.7em;
+              background-color: #f1f5fe;
+              border-radius: 4px;
+              transition: all 0.2s ease;
+              display: inline-block;
+              margin: 0 0.1em;
             }
           
             .styled-link:hover {
-              background-color: #3498db; /* 设置鼠标悬停时的背景颜色为蓝色 */
-              color: #fff; /* 设置鼠标悬停时的文字颜色为白色 */
+              background-color: #5183f5;
+              color: #fff;
+              transform: translateY(-1px);
+            }
+            
+            .container {
+              max-width: 880px;
+              margin: 0 auto;
+              position: relative;
+            }
+
+            /* 更紧凑的新闻列表 */
+            ul.news li {
+              margin-bottom: 0.4em;
+              font-size: 0.95em;
+              display: flex;
+              align-items: flex-start; /* 顶部对齐 */
+            }
+            
+            /* 时间日期样式 - 使用等宽字体 */
+            .news-date {
+              font-family: 'JetBrains Mono', monospace; /* 等宽字体 */
+              min-width: 100px;
+              font-weight: 500;
+              color: #555;
+              margin-right: 10px; /* 稍微增加右边距 */
+              flex-shrink: 0; /* 防止缩小 */
+            }
+            
+            /* 新闻内容样式 */
+            .news-content {
+              flex-grow: 1; /* 允许内容占用剩余空间 */
+            }
+            
+            /* 适配暗黑模式的日期颜色 */
+            body.dark-mode .news-date {
+              color: #aaa;
+            }
+
+            /* 链接和其他小元素的压缩样式 */
+            .small-links {
+              font-size: 0.9em;
+              line-height: 1.4;
+            }
+
+            /* 减小最后更新文本大小 */
+            .maincontent {
+              font-size: 0.85em;
+            }
+            
+            /* 响应式调整 */
+            @media (max-width: 768px) {
+              .profile-container {
+                flex-direction: column;
+                gap: 0.8em;
+              }
+              
+              body {
+                padding: 1em;
+              }
+              
+              /* 移动设备上的新闻项目改为垂直布局 */
+              ul.news li {
+                display: block;
+              }
+              
+              .news-date {
+                display: inline-block;
+                min-width: unset;
+                margin-right: 3px;
+              }
+            }
+            
+            body.dark-mode .styled-link {
+              background-color: #2a3342;
+              color: #7b9dff;
+            }
+            
+            body.dark-mode .styled-link:hover {
+              background-color: #7b9dff;
+              color: #111;
+            }
+            
+            body.dark-mode hr {
+              border-top: 1px solid #333;
             }
           </style>
+        
+        <!-- 在样式表之后添加主题切换脚本 -->
+        <script src="js/dark-mode.js"></script>
    </head>
 <body>
 
-
-<div id='cssmenu' style='width:700px;'>
-    <!-- control the line's width. -->
-<ul>
-<li><a href="index.html"><span>Home</span></a></li>
-<li><a href="pub/publications.html"><span>Publications</span></a></li>
-<li><a href="exp/experience.html"><span>Experience</span></a></li>
-<li><a href="honors/honors.html"><span>Honors</span></a></li>
-<li><a href="https://weihui1308.github.io/blog/"><span>Blog</span></a></li>
-<li><a href="resource/resource.html"><span>Helpful Resources</span></a></li>
-</ul>
-</div>
-
-<div>
-    <img style="float: right;" alt="wh" src="images/photos/wh.png"  height="200" width="150" alt="Computer Hope"/>
-        <h2>卫慧 (Hui Wei)</h2>
-		<b>Laboratory</b><br>
-		AIM Lab (AI&Multimedia Laboratory) <br>
-		(at Wuhan University)
-		<br><br>
-        <b>Resume</b><br>
-        <a href="../assets/CV.pdf">PDF</a> (updated 11/2024)
-        <br><br>
-        <b>Interests</b><br>
-        Trustworthy AI, Computer Vision, Adversarial Attack, Physical Simulation
-        <br><br>
-        <b>Contact</b><br>
-        weihui0713@whu.edu.cn
-        <br><br>
-        <b>News!</b>
+<div class="container">
+    <!-- 添加暗黑模式切换按钮 -->
+    <button class="theme-toggle" aria-label="Toggle dark mode">
+        <span class="icon-light">🌙</span>
+        <span class="icon-dark">☀️</span>
+    </button>
+    
+    <div id='cssmenu'>
         <ul>
-            <!-- I am on the 2023-2024 job market. Please feel free to reach out if you have potential positions. -->
-            <li>[2025.03.06]: One paper on physical adversarial attack is accepted to CVPR 2025. The paper and source code will be available soon.</li>
-            <li>[2024.12.31]: One co-authored paper on privacy protection is accepted to AAAI 2025.</li>
-            <li>[2024.09.26]: One paper on physical adversarial attack is accepted to NeurIPS 2024. The <a href="https://github.com/weihui1308/CAP">source code</a> is released. Feel free to contact me for questions.</li>
-            <li>[2024.07.13]: Our <a href="https://arxiv.org/abs/2209.15179">survey paper</a> on physical adversarial attack is accepted by T-PAMI.</li>
-            <li>[2023.11.01]: I've been awarded the Second Prize of Academic Innovation of Wuhan University. </li>
-            <li>[2023.10.28]: We won the first prize of <a href="https://cs.whu.edu.cn/info/1054/35851.htm">the 18th China "Challenge Cup" competition</a>.</li>
-            <li>[2023.10.13]: I've been awarded 2023 <b>China National Scholarship</b>, Wuhan University.</li>
-            <li>[2023.09.19]: One paper on physical backdoor attack is accepted to ACM MM 2023. The <a href="https://github.com/weihui1308/Moire-Backdoor-Attack">source code</a> is released. Feel free to contact me for questions.</li>
-            <li>[2023.01.08]: We won the first prize in the <a href="https://mp.weixin.qq.com/s/0pveGZwGvD5yYbnDk20e6A">“Huawei Cup” Postgraduate Network Security Innovation Competition</a>. <a href="https://www.ctdsb.net/c1476_202212/1586099.html" class="styled-link">极目新闻</a>&nbsp;<a href="https://news.hbtv.com.cn/p/2330583.html" class="styled-link">湖北卫视</a>&nbsp;<a href="https://www.scmp.com/news/china/science/article/3202087/chinese-graduate-students-invent-invisibility-cloak-can-slip-past-security-cameras-and-recognition" class="styled-link">South China Morning Post</a>&nbsp;<a href="https://mp.weixin.qq.com/s?__biz=MzIwMDM2NzI2OA==&mid=2652696406&idx=1&sn=89376f7ae9e0d6df33682206ccab7880&chksm=8d16029dba618b8b9afbff81824507118edb859e5e67666a657f5d1a624dd5e39c00e3169339&scene=27" class="styled-link">共青团中央</a></li>
-            <li>[2022.12.06]: One paper on physical adversarial attack is accepted to AAAI 2023. The <a href="https://github.com/weihui1308/HOTCOLDBlock">source code</a> is released. Feel free to contact me for questions.</li>
+            <li class="active"><a href="index.html"><span>Home</span></a></li>
+            <li><a href="pub/publications.html"><span>Publications</span></a></li>
+            <li><a href="exp/experience.html"><span>Experience</span></a></li>
+            <li><a href="honors/honors.html"><span>Honors</span></a></li>
+            <li><a href="https://weihui1308.github.io/blog/"><span>Blog</span></a></li>
+            <li><a href="resource/resource.html"><span>Resources</span></a></li>
         </ul>
+    </div>
+
+    <div class="profile-container">
+        <div class="profile-image">
+            <img alt="Hui Wei" src="images/photos/wh.png" height="180" width="135"/>
+        </div>
+        <div class="profile-info">
+            <h2>卫慧 (Hui Wei)</h2>
+            <p><strong>Laboratory:</strong> AIM Lab (AI&Multimedia Laboratory), Wuhan University</p>
+            <p><strong>Resume:</strong> <a href="assets/CV.pdf">PDF</a> (updated 6/2025)</p>
+            <p><strong>Interests:</strong> Trustworthy AI, Computer Vision, Adversarial Attack, Physical Simulation</p>
+            <p><strong>Contact:</strong> weihui0713@whu.edu.cn</p>
+            <p>卫慧 is a third-year CS PhD student advised by <a href="https://wangzwhu.github.io/home/">Prof. Zheng Wang</a>.</p>
+        </div>
+    </div>
+
+    <h3>News</h3>
+    <ul class="news">
+        <li>
+            <span class="news-date">[2025.03.06]</span>
+            <span class="news-content">One paper on physical adversarial attack is accepted to CVPR 2025. The paper and source code will be available soon.</span>
+        </li>
+        <li>
+            <span class="news-date">[2024.12.31]</span>
+            <span class="news-content">One co-authored paper on privacy protection is accepted to AAAI 2025.</span>
+        </li>
+        <li>
+            <span class="news-date">[2024.09.26]</span>
+            <span class="news-content">One paper on physical adversarial attack is accepted to NeurIPS 2024. The <a href="https://github.com/weihui1308/CAP">source code</a> is released. Feel free to contact me for questions.</span>
+        </li>
+        <li>
+            <span class="news-date">[2024.07.13]</span>
+            <span class="news-content">Our <a href="https://arxiv.org/abs/2209.15179">survey paper</a> on physical adversarial attack is accepted by T-PAMI.</span>
+        </li>
+        <li>
+            <span class="news-date">[2023.11.01]</span>
+            <span class="news-content">I've been awarded the Second Prize of Academic Innovation of Wuhan University.</span>
+        </li>
+        <li>
+            <span class="news-date">[2023.10.28]</span>
+            <span class="news-content">We won the first prize of <a href="https://cs.whu.edu.cn/info/1054/35851.htm">the 18th China "Challenge Cup" competition</a>.</span>
+        </li>
+        <li>
+            <span class="news-date">[2023.10.13]</span>
+            <span class="news-content">I've been awarded 2023 <b>China National Scholarship</b>, Wuhan University.</span>
+        </li>
+        <li>
+            <span class="news-date">[2023.09.19]</span>
+            <span class="news-content">One paper on physical backdoor attack is accepted to ACM MM 2023. The <a href="https://github.com/weihui1308/Moire-Backdoor-Attack">source code</a> is released.</span>
+        </li>
+        <li>
+            <span class="news-date">[2023.01.08]</span>
+            <span class="news-content">We won the first prize in the <a href="https://mp.weixin.qq.com/s/0pveGZwGvD5yYbnDk20e6A">"Huawei Cup" Competition</a>. <a href="https://www.ctdsb.net/c1476_202212/1586099.html" class="styled-link">极目新闻</a>&nbsp;<a href="https://news.hbtv.com.cn/p/2330583.html" class="styled-link">湖北卫视</a>&nbsp;<a href="https://www.scmp.com/news/china/science/article/3202087/chinese-graduate-students-invent-invisibility-cloak-can-slip-past-security-cameras-and-recognition" class="styled-link">South China Morning Post</a>&nbsp;<a href="https://mp.weixin.qq.com/s?__biz=MzIwMDM2NzI2OA==&mid=2652696406&idx=1&sn=89376f7ae9e0d6df33682206ccab7880&chksm=8d16029dba618b8b9afbff81824507118edb859e5e67666a657f5d1a624dd5e39c00e3169339&scene=27" class="styled-link">共青团中央</a></span>
+        </li>
+        <li>
+            <span class="news-date">[2022.12.06]</span>
+            <span class="news-content">One paper on physical adversarial attack is accepted to AAAI 2023. The <a href="https://github.com/weihui1308/HOTCOLDBlock">source code</a> is released.</span>
+        </li>
+    </ul>
+
+    <hr>
+
+    <div>
+        <p>卫慧 (Hui Wei) is a third-year CS PhD student in <a href="http://aim-nercms.whu.edu.cn/">AIM Lab</a> at <a href="https://www.whu.edu.cn/">Wuhan University (WHU)</a>, advised by <a href="https://wangzwhu.github.io/home/">Prof. Zheng Wang</a>.</p>
+        <p>His motto is: <em>Doing Honest Work with My Own Hands.</em></p>
+    </div>
+
+    <hr>
+
+    <div class="small-links">
+        <p>Links: <a href="https://dblp.org/pid/38/7021-4.html">DBLP</a> · <a href="https://scholar.google.com/citations?user=doqNS_kAAAAJ&hl=en">Google Scholar</a> · <a href="https://github.com/weihui1308">Github</a></p>
+    </div>
+
+    <div style="margin-top: 1em;">
+        <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=tt&d=U8OxNZt2CF-R0v4gh7PFFDkWSZkD_FLRR_jwXEq5q6s&co=2d78ad&ct=ffffff&cmo=3acc3a&cmn=ff5353'></script>
+    </div>
+
+    <div class="maincontent" style="text-align: right; font-style:italic; margin-top: 1.5em; color: #888;">
+        Last Updated: Jun. 13, 2025
+    </div>
 </div>
-
-<hr>
-
-<div>
-<p class="main">
-卫慧 (Hui Wei) is a third-year CS PhD student in <a href="http://aim-nercms.whu.edu.cn/">AIM Lab</a> at <a href="https://www.whu.edu.cn/">Wuhan University (WHU)</a>, advised by <a href="https://wangzwhu.github.io/home/">Prof. Zheng Wang</a>.<br>
-
-His motto is: Doing Honest Work with My Own Hands.<br>
-
-<hr>
-
-Some Links: <a href="https://dblp.org/pid/38/7021-4.html">DBLP</a>, <a href="https://scholar.google.com/citations?user=doqNS_kAAAAJ&hl=en">Google Scholar</a>, <a href="https://github.com/weihui1308">Github</a>
-</p>
-</div>
-
-<hr>
-
-<br><br>
-
-<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=tt&d=U8OxNZt2CF-R0v4gh7PFFDkWSZkD_FLRR_jwXEq5q6s&co=2d78ad&ct=ffffff&cmo=3acc3a&cmn=ff5353'></script>
-
-<div class="maincontent" style="text-align: right; font-style:italic">
-    Last Updated: Mar. 11, 2025
 
 </body>
 </html>

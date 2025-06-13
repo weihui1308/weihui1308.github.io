@@ -1,55 +1,76 @@
-
 <!DOCTYPE html>
 <html>
 
     <head>
         <meta charset="utf-8">
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Hui Wei</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Resources | Hui Wei</title>
         <link rel="stylesheet" href="../css/main_wh.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <style>
+            .container {
+              max-width: 880px;
+              margin: 0 auto;
+              position: relative;
+            }
+            
+            /* 移除内联的主题切换按钮样式 */
+        </style>
+        
+        <!-- 添加主题切换脚本 -->
+        <script src="../js/dark-mode.js"></script>
    </head>
     <body>
 
+<div class="container">
+    <!-- 添加暗黑模式切换按钮 -->
+    <button class="theme-toggle" aria-label="Toggle dark mode">
+        <span class="icon-light">🌙</span>
+        <span class="icon-dark">☀️</span>
+    </button>
 
-<div id='cssmenu' style='width:700px;'>
-<ul>
-<li><a href="../index.html"><span>Home</span></a></li>
-<li><a href="../pub/publications.html"><span>Publications</span></a></li>
-<li><a href="../exp/experience.html"><span>Experience</span></a></li>
-<li><a href="../honors/honors.html"><span>Honors</span></a></li>
-<li><a href="https://weihui1308.github.io/blog/"><span>Blog</span></a></li>
-<li><a href="../resource/resource.html"><span>Helpful Resources</span></a></li>
-</ul>
-</div>
+    <div id='cssmenu'>
+        <ul>
+            <li><a href="../index.html"><span>Home</span></a></li>
+            <li><a href="../pub/publications.html"><span>Publications</span></a></li>
+            <li><a href="../exp/experience.html"><span>Experience</span></a></li>
+            <li><a href="../honors/honors.html"><span>Honors</span></a></li>
+            <li><a href="https://weihui1308.github.io/blog/"><span>Blog</span></a></li>
+            <li class="active"><a href="../resource/resource.html"><span>Resources</span></a></li>
+        </ul>
+    </div>
 
-<div>
-    <h2>Helpful Resources</h2>
+    <div>
+        <h2>Helpful Resources</h2>
 
-    <b>Paper Writing</b><br>
-    <ul>
-        <li><a href="https://github.com/MLNLP-World/Paper-Writing-Tips">A Github Repository about Paper Writing Tips.</a></li>
-        <li><a href="https://github.com/wangdongdut/PaperWriting">A Github Repository about Paper Writing Guidelines.</a></li>
-        <li><a href="../assets/checklist.pdf">Checklist to Use before Submitting A Paper to A Journal.</a></li>
-        <li><a href="https://www.cmor-faculty.rice.edu/~heinken/latex/symbols.pdf">LATEX Mathematical Symbols.</a></li>
-    </ul>
+        <b>Paper Writing</b><br>
+        <ul>
+            <li><a href="https://github.com/MLNLP-World/Paper-Writing-Tips">A Github Repository about Paper Writing Tips.</a></li>
+            <li><a href="https://github.com/wangdongdut/PaperWriting">A Github Repository about Paper Writing Guidelines.</a></li>
+            <li><a href="../assets/checklist.pdf">Checklist to Use before Submitting A Paper to A Journal.</a></li>
+            <li><a href="https://www.cmor-faculty.rice.edu/~heinken/latex/symbols.pdf">LATEX Mathematical Symbols.</a></li>
+        </ul>
 
-    <b>Presentation / Talk</b><br>
-    <ul>
-        <li><a href="https://graphics.stanford.edu/~kayvonf/misc/cleartalktips.pdf">Tips for Giving Clear Talks.</a></li>
-        <li><a href="https://homes.cs.washington.edu/~mernst/advice/giving-talk.html">How to give a technical presentation.</a></li>
-    </ul>
+        <b>Presentation / Talk</b><br>
+        <ul>
+            <li><a href="https://graphics.stanford.edu/~kayvonf/misc/cleartalktips.pdf">Tips for Giving Clear Talks.</a></li>
+            <li><a href="https://homes.cs.washington.edu/~mernst/advice/giving-talk.html">How to give a technical presentation.</a></li>
+        </ul>
 
-    <b>Paper Review</b><br>
-    <ul>
-        <li><a href="https://perceiving-systems.blog/en/news/novelty-in-science">Novelty in Science - A guide for reviewers.</a></li>
-    </ul>
+        <b>Paper Review</b><br>
+        <ul>
+            <li><a href="https://perceiving-systems.blog/en/news/novelty-in-science">Novelty in Science - A guide for reviewers.</a></li>
+        </ul>
 
-    <b>Scientific Research</b><br>
-    <ul>
-        <li><a href="https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD637.html">Dijkstra’s Three Golden Rules for Successful Scientific Research.</a></li>
-    </ul>
-    
+        <b>Scientific Research</b><br>
+        <ul>
+            <li><a href="https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD637.html">Dijkstra's Three Golden Rules for Successful Scientific Research.</a></li>
+        </ul>
+    </div>
 </div>
 
 </body>

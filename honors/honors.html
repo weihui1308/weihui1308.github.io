@@ -1,62 +1,94 @@
-
 <!DOCTYPE html>
 <html>
 
     <head>
         <meta charset="utf-8">
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Hui Wei</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Honors | Hui Wei</title>
         <link rel="stylesheet" href="../css/main_wh.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
         <style>
             .styled-link {
-              font-size: 14px; /* 设置字体大小为14像素 */
-              color: #3498db; /* 设置链接颜色为蓝色 */
-              text-decoration: none; /* 去除下划线 */
-              font-weight: bold;
-              padding: 5px 10px; /* 添加内边距，增加点击区域 */
-              background-color: #ecf0f1; /* 设置背景颜色为淡蓝色 */
-              border-radius: 5px; /* 圆角边框 */
-              transition: background-color 0.3s ease, color 0.3s ease; /* 添加颜色和背景颜色过渡效果 */
+              font-size: 13px;
+              color: #5183f5;
+              text-decoration: none;
+              font-weight: 500;
+              padding: 0.2em 0.7em;
+              background-color: #f1f5fe;
+              border-radius: 4px;
+              transition: all 0.2s ease;
+              display: inline-block;
+              margin: 0 0.1em;
             }
           
             .styled-link:hover {
-              background-color: #3498db; /* 设置鼠标悬停时的背景颜色为蓝色 */
-              color: #fff; /* 设置鼠标悬停时的文字颜色为白色 */
+              background-color: #5183f5;
+              color: #fff;
+              transform: translateY(-1px);
             }
-          </style>
+            
+            .container {
+              max-width: 880px;
+              margin: 0 auto;
+              position: relative;
+            }
+            
+            /* 移除内联的主题切换按钮样式 */
+            
+            body.dark-mode .styled-link {
+              background-color: #2a3342;
+              color: #7b9dff;
+            }
+            
+            body.dark-mode .styled-link:hover {
+              background-color: #7b9dff;
+              color: #111;
+            }
+        </style>
+        
+        <!-- 添加主题切换脚本 -->
+        <script src="../js/dark-mode.js"></script>
    </head>
     <body>
 
+<div class="container">
+    <!-- 添加暗黑模式切换按钮 -->
+    <button class="theme-toggle" aria-label="Toggle dark mode">
+        <span class="icon-light">🌙</span>
+        <span class="icon-dark">☀️</span>
+    </button>
 
-<div id='cssmenu' style='width:700px;'>
-<ul>
-<li><a href="../index.html"><span>Home</span></a></li>
-<li><a href="../pub/publications.html"><span>Publications</span></a></li>
-<li><a href="../exp/experience.html"><span>Experience</span></a></li>
-<li><a href="../honors/honors.html"><span>Honors</span></a></li>
-<li><a href="https://weihui1308.github.io/blog/"><span>Blog</span></a></li>
-<li><a href="../resource/resource.html"><span>Helpful Resources</span></a></li>
-</ul>
+    <div id='cssmenu'>
+        <ul>
+            <li><a href="../index.html"><span>Home</span></a></li>
+            <li><a href="../pub/publications.html"><span>Publications</span></a></li>
+            <li><a href="../exp/experience.html"><span>Experience</span></a></li>
+            <li class="active"><a href="../honors/honors.html"><span>Honors</span></a></li>
+            <li><a href="https://weihui1308.github.io/blog/"><span>Blog</span></a></li>
+            <li><a href="../resource/resource.html"><span>Resources</span></a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Honors</h2>
+        <b>Honors</b><br>
+        <ul>
+          <li><b>DiDi Scholarship</b>, Wuhan University, [2024.11].  
+          <li>Second Prize of <b>Academic Innovation of Wuhan University</b>, [2023.11].
+          <li><b>China National Scholarship</b>, Wuhan University, [2023.10].
+        </ul>
+
+        <b>Competitions</b><br>
+        <ul>
+          <li>Won the first prize in <a href="https://cs.whu.edu.cn/info/1054/35851.htm">the 18th China "Challenge Cup" Competition</a> as a leader, [2023.10].</li>
+          <li>Won the first prize in <a href="https://mp.weixin.qq.com/s/0pveGZwGvD5yYbnDk20e6A">the "Huawei Cup" Postgraduate Network Security Innovation Competition</a> as a technical leader, [2023.01]. <a href="https://www.ctdsb.net/c1476_202212/1586099.html" class="styled-link">极目新闻</a> <a href="https://news.hbtv.com.cn/p/2330583.html" class="styled-link">湖北卫视</a> <a href="https://www.scmp.com/news/china/science/article/3202087/chinese-graduate-students-invent-invisibility-cloak-can-slip-past-security-cameras-and-recognition" class="styled-link">SCMP</a> <a href="https://mp.weixin.qq.com/s?__biz=MzIwMDM2NzI2OA==&mid=2652696406&idx=1&sn=89376f7ae9e0d6df33682206ccab7880&chksm=8d16029dba618b8b9afbff81824507118edb859e5e67666a657f5d1a624dd5e39c00e3169339&scene=27" class="styled-link">共青团中央</a></li>
+        </ul>
+    </div>
 </div>
-
-<div>
-    <h2>Honors</h2>
-    <b>Honors</b><br>
-    <ul>
-      <li><b>DiDi Scholarship</b>, Wuhan University, [2024.11].  
-      <li>Second Prize of <b>Academic Innovation of Wuhan University</b>, [2023.11].
-      <li><b>China National Scholarship</b>, Wuhan University, [2023.10].
-    </ul>
-
-    <b>Competitions</b><br>
-    <ul>
-      <li>Won the first prize in <a href="https://cs.whu.edu.cn/info/1054/35851.htm">the 18th China "Challenge Cup" Competition</a> as a leader, [2023.10].</li>
-      <li>Won the first prize in <a href="https://mp.weixin.qq.com/s/0pveGZwGvD5yYbnDk20e6A">the "Huawei Cup" Postgraduate Network Security Innovation Competition</a> as a technical leader, [2023.01]. <a href="https://www.ctdsb.net/c1476_202212/1586099.html" class="styled-link">极目新闻</a>&nbsp;<a href="https://news.hbtv.com.cn/p/2330583.html" class="styled-link">湖北卫视</a>&nbsp;<a href="https://www.scmp.com/news/china/science/article/3202087/chinese-graduate-students-invent-invisibility-cloak-can-slip-past-security-cameras-and-recognition" class="styled-link">South China Morning Post</a>&nbsp;<a href="https://mp.weixin.qq.com/s?__biz=MzIwMDM2NzI2OA==&mid=2652696406&idx=1&sn=89376f7ae9e0d6df33682206ccab7880&chksm=8d16029dba618b8b9afbff81824507118edb859e5e67666a657f5d1a624dd5e39c00e3169339&scene=27" class="styled-link">共青团中央</a></li>
-    </ul>
-</div>
-
-
 
 </body>
 </html>

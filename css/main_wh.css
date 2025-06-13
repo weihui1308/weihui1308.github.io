@@ -1,121 +1,269 @@
-
 html {
-    background-color: #ffffff;
+    background-color: #faf8f8;
+    transition: background-color 0.3s ease;
 }
 
 body {
     margin: 0 auto;
-    padding: 2em;
-	width:none;
-    max-width:none;
-    min-width:none;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 18px;
-    line-height: 1.5em;
+    padding: 1.5em; /* 减小内边距 */
+    max-width: 880px; /* 稍微减小宽度 */
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px; /* 稍微减小字体大小 */
+    line-height: 1.6; /* 减小行高 */
     color: #333333;
-    background-color: #ffffff;
-    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+    background-color: #faf8f8;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Cambria","Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 1.3em;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.2em; /* 减小标题行高 */
+    margin-top: 1.2em; /* 减小上边距 */
+    margin-bottom: 0.4em; /* 减小下边距 */
+    color: #111111;
 }
 
-samp
-{
-    /* hide <samp> from the browser so we can show cool features in Edge Code */
-    display: none;
+h2 {
+    font-size: 1.6em; /* 稍微减小标题大小 */
+    font-weight: 600;
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: 0.2em; /* 减小底部内边距 */
 }
 
-/*
-img
-{
-    background: dimgray;
-    border: 1px solid black;
-    border-radius: 2px;
-    padding: 15px 10px 10px;
-    margin: 10px 0;
-    max-width: 95%;
+h3 {
+    font-size: 1.3em; /* 明确定义 h3 的大小 */
+    margin-top: 1em; /* 减小 h3 的上边距 */
 }
-*/
 
+a {
+    color: #5183f5;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+a:hover {
+    border-bottom: 1px solid #5183f5;
+}
+
+p {
+    margin: 0.7em 0; /* 减小段落间距 */
+}
+
+/* Navigation menu styling - 字体更大 */
 #cssmenu {
-    float: center;
-    text-align: center;
+    width: 100%;
+    margin-bottom: 1.5em;
+    text-align: left;
 }
-
-p.main {
-	font-size: 1.0em;
-	font-family: "Helvetica Neue", "Arial", "sans-serif", "��謕娍�烐�嚙�";
-	line-height: 1.5em;
-	margin: 5px 0px 15px 0;
-    /* <!-- margin: 5px 160px 15px 0; --> */
-	}
 
 #cssmenu ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  width: auto;
-  position: relative;
-  display: block;
-  height: 42px;
-  font-size: 18px;
-  font-weight: bold;
-  background: transparent repeat-x top left;
-  font-family: "Helvetica Neue", "Arial", sans-serif;
-  border-bottom: 3px solid #333;
-  border-top: 3px solid #333;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    width: auto;
+    position: relative;
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    border-top: none;
+    gap: 1em;
+    font-size: 1.0em; /* 增大菜单字体 */
+    font-weight: 500;
+    padding-bottom: 0.7em; /* 减小底部内边距 */
 }
 
 #cssmenu li {
-  display: block;
-  float: left;
-  margin: 0;
-  padding: 0;
+    display: block;
+    margin: 0;
+    padding: 0;
 }
+
 #cssmenu li a {
-  display: block;
-  float: left;
-  color: #666;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 15px 8px 15px;
+    display: block;
+    color: #555;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.1em 0; /* 减小垂直内边距 */
+    border-bottom: 2px solid transparent;
 }
+
 #cssmenu li a:hover {
-  color: #000099;
-  height: 22px;
-  background: transparent 0px -30px no-repeat;
+    color: #5183f5;
+    background: transparent;
+    height: auto;
+    border-bottom: 2px solid #5183f5;
 }
+
 #cssmenu li.active a {
-  display: inline;
-  height: 22px;
-  background: transparent 0px -30px no-repeat;
-  float: left;
-  margin: 0;
+    color: #5183f5;
+    height: auto;
+    background: transparent;
+    border-bottom: 2px solid #5183f5;
 }
+
 
 ul.news {
-	font-size: 1.0 em;
-	list-style-type: disc;
-	margin-left: 0px;
-	}
-	
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+    margin-top: 0.5em;
+}
+    
 .news li {
-	padding: 0px 0 0px 0px;
-	/*background: no-repeat left center;*/
-	}
+    padding: 0.1em 0;
+    position: relative;
+    padding-left: 1.2em;
+}
+
+.news li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #5183f5;
+    font-size: 1.2em; /* 让圆点稍大一些 */
+    line-height: 1;
+}
 
 ul.sub {
-	font-size: 1.0em;
-	list-style-type: square;
-	margin-left: 0px;
-	}
-	
-.sub li {
-	padding: 0px 0 0px 0px;
-	/*background: no-repeat left center;*/
-	}
+    font-size: 1em;
+    list-style-type: none;
+    margin-left: 1.5em;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #eaecef;
+    margin: 1.5em 0; /* 减小分隔线间距 */
+}
+
+
+.profile-container {
+    display: flex;
+    flex-direction: row; /* 默认横向排列 */
+    gap: 1em;
+    margin-bottom: 1.5em; /* 减小底部外边距 */
+    align-items: flex-start; /* 顶部对齐 */
+}
+
+.profile-image {
+    flex: 0 0 auto;
+    margin-right: 1em; /* 减小图片右边距 */
+}
+
+.profile-info {
+    flex: 1 1 auto;
+}
+
+.profile-info h2 {
+    margin-top: 0; /* 移除顶部边距 */
+    font-size: 1.5em; /* 更小的标题尺寸 */
+}
+
+.profile-info p {
+    margin: 0.5em 0; /* 信息部分段落间距更小 */
+}
+
+/* Dark mode toggle 样式 - 修正位置 */
+.theme-toggle {
+    position: absolute;
+    top: 0.2em; /* 调高按钮位置 */
+    right: 1em;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #555;
+    font-size: 1.2em;
+    padding: 0.3em;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    z-index: 100; /* 确保按钮显示在顶层 */
+}
+
+.theme-toggle:hover {
+    background-color: #f0f0f0;
+}
+
+.theme-toggle .icon-light {
+    display: inline;
+}
+
+.theme-toggle .icon-dark {
+    display: none;
+}
+
+body.dark-mode .theme-toggle .icon-light {
+    display: none;
+}
+
+body.dark-mode .theme-toggle .icon-dark {
+    display: inline;
+}
+
+body.dark-mode .theme-toggle {
+    color: #aaa;
+}
+
+body.dark-mode .theme-toggle:hover {
+    background-color: #2a2a2a;
+}
+
+@media (max-width: 768px) {
+    .theme-toggle {
+        top: 0.2em; /* 在移动设备上也保持按钮位置 */
+        right: 1em;
+    }
+}
+
+/* 暗黑模式全局设置 */
+html.dark-mode {
+    background-color: #181818;
+}
+
+html.dark-mode body {
+    background-color: #181818;
+    color: #ddd;
+}
+
+html.dark-mode h1,
+html.dark-mode h2,
+html.dark-mode h3,
+html.dark-mode h4,
+html.dark-mode h5,
+html.dark-mode h6 {
+    color: #eee;
+}
+
+html.dark-mode h2 {
+    border-bottom: 1px solid #333;
+}
+
+html.dark-mode a {
+    color: #7b9dff;
+}
+
+html.dark-mode a:hover {
+    border-bottom: 1px solid #7b9dff;
+}
+
+html.dark-mode #cssmenu ul {
+    border-bottom: 1px solid #333;
+}
+
+html.dark-mode #cssmenu li a {
+    color: #aaa;
+}
+
+html.dark-mode #cssmenu li a:hover,
+html.dark-mode #cssmenu li.active a {
+    color: #7b9dff;
+    border-bottom: 2px solid #7b9dff;
+}
+
+html.dark-mode .news li:before {
+    color: #7b9dff;
+}
+
+html.dark-mode hr {
+    border-top: 1px solid #333;
+}

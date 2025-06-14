@@ -22,7 +22,7 @@
               border-radius: 4px;
               transition: all 0.2s ease;
               display: inline-block;
-              margin: 0 0.1em;
+              margin: 0.1em;
             }
           
             .styled-link:hover {
@@ -37,7 +37,14 @@
               position: relative;
             }
             
-            /* 移除内联的主题切换按钮样式 */
+            /* 荣誉页面特有样式 */
+            ul > li {
+              margin-bottom: 0.8em;
+            }
+            
+            ul > li > b {
+              font-weight: 600;
+            }
             
             body.dark-mode .styled-link {
               background-color: #2a3342;
@@ -47,6 +54,31 @@
             body.dark-mode .styled-link:hover {
               background-color: #7b9dff;
               color: #111;
+            }
+            
+            /* 响应式调整 */
+            @media (max-width: 768px) {
+              ul {
+                padding-left: 1.2em;
+              }
+              
+              .styled-link {
+                margin: 0.1em 0.1em 0.2em 0;
+                display: inline-block;
+              }
+            }
+            
+            /* 更小屏幕优化 */
+            @media (max-width: 480px) {
+              ul {
+                padding-left: 1em;
+              }
+              
+              .styled-link {
+                font-size: 12px;
+                padding: 0.15em 0.5em;
+                margin: 0.1em 0.1em 0.2em 0;
+              }
             }
         </style>
         

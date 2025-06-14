@@ -18,7 +18,55 @@
               position: relative;
             }
             
-            /* 移除内联的主题切换按钮样式 */
+            /* 资源页面样式 */
+            .resources-section {
+              margin-bottom: 1.8em;
+            }
+            
+            .resources-section b {
+              font-weight: 600;
+              font-size: 1.1em;
+              display: inline-block;
+              margin-bottom: 0.5em;
+            }
+            
+            .resources-section ul {
+              margin-top: 0.5em;
+              margin-bottom: 1em;
+              padding-left: 1.5em;
+            }
+            
+            .resources-section li {
+              margin-bottom: 0.5em;
+              line-height: 1.5;
+            }
+            
+            .resources-section li a {
+              word-break: break-word; /* 确保链接文本可以在小屏幕上换行 */
+            }
+            
+            /* 响应式调整 */
+            @media (max-width: 768px) {
+              .resources-section b {
+                display: block;
+                margin-bottom: 0.3em;
+              }
+              
+              .resources-section ul {
+                padding-left: 1.2em;
+              }
+            }
+            
+            /* 针对更小屏幕的优化 */
+            @media (max-width: 480px) {
+              .resources-section ul {
+                padding-left: 1em;
+              }
+              
+              .resources-section li {
+                margin-bottom: 0.8em;
+              }
+            }
         </style>
         
         <!-- 添加主题切换脚本 -->
@@ -47,29 +95,37 @@
     <div>
         <h2>Helpful Resources</h2>
 
-        <b>Paper Writing</b><br>
-        <ul>
-            <li><a href="https://github.com/MLNLP-World/Paper-Writing-Tips">A Github Repository about Paper Writing Tips.</a></li>
-            <li><a href="https://github.com/wangdongdut/PaperWriting">A Github Repository about Paper Writing Guidelines.</a></li>
-            <li><a href="../assets/checklist.pdf">Checklist to Use before Submitting A Paper to A Journal.</a></li>
-            <li><a href="https://www.cmor-faculty.rice.edu/~heinken/latex/symbols.pdf">LATEX Mathematical Symbols.</a></li>
-        </ul>
+        <div class="resources-section">
+            <b>Paper Writing</b>
+            <ul>
+                <li><a href="https://github.com/MLNLP-World/Paper-Writing-Tips">A Github Repository about Paper Writing Tips.</a></li>
+                <li><a href="https://github.com/wangdongdut/PaperWriting">A Github Repository about Paper Writing Guidelines.</a></li>
+                <li><a href="../assets/checklist.pdf">Checklist to Use before Submitting A Paper to A Journal.</a></li>
+                <li><a href="https://www.cmor-faculty.rice.edu/~heinken/latex/symbols.pdf">LATEX Mathematical Symbols.</a></li>
+            </ul>
+        </div>
 
-        <b>Presentation / Talk</b><br>
-        <ul>
-            <li><a href="https://graphics.stanford.edu/~kayvonf/misc/cleartalktips.pdf">Tips for Giving Clear Talks.</a></li>
-            <li><a href="https://homes.cs.washington.edu/~mernst/advice/giving-talk.html">How to give a technical presentation.</a></li>
-        </ul>
+        <div class="resources-section">
+            <b>Presentation / Talk</b>
+            <ul>
+                <li><a href="https://graphics.stanford.edu/~kayvonf/misc/cleartalktips.pdf">Tips for Giving Clear Talks.</a></li>
+                <li><a href="https://homes.cs.washington.edu/~mernst/advice/giving-talk.html">How to give a technical presentation.</a></li>
+            </ul>
+        </div>
 
-        <b>Paper Review</b><br>
-        <ul>
-            <li><a href="https://perceiving-systems.blog/en/news/novelty-in-science">Novelty in Science - A guide for reviewers.</a></li>
-        </ul>
+        <div class="resources-section">
+            <b>Paper Review</b>
+            <ul>
+                <li><a href="https://perceiving-systems.blog/en/news/novelty-in-science">Novelty in Science - A guide for reviewers.</a></li>
+            </ul>
+        </div>
 
-        <b>Scientific Research</b><br>
-        <ul>
-            <li><a href="https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD637.html">Dijkstra's Three Golden Rules for Successful Scientific Research.</a></li>
-        </ul>
+        <div class="resources-section">
+            <b>Scientific Research</b>
+            <ul>
+                <li><a href="https://www.cs.utexas.edu/~EWD/transcriptions/EWD06xx/EWD637.html">Dijkstra's Three Golden Rules for Successful Scientific Research.</a></li>
+            </ul>
+        </div>
     </div>
 </div>
 

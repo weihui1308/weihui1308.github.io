@@ -76,27 +76,12 @@
               font-size: 0.85em;
             }
             
-            /* 响应式调整 */
-            @media (max-width: 768px) {
-              .profile-container {
-                flex-direction: column;
-                gap: 0.8em;
-              }
-              
-              body {
-                padding: 1em;
-              }
-              
-              /* 移动设备上的新闻项目改为垂直布局 */
-              ul.news li {
-                display: block;
-              }
-              
-              .news-date {
-                display: inline-block;
-                min-width: unset;
-                margin-right: 3px;
-              }
+            /* 访问计数器样式 */
+            .clustrmaps-wrapper {
+              margin-top: 1em;
+              overflow: hidden;
+              width: 100%;
+              max-width: 300px;
             }
             
             body.dark-mode .styled-link {
@@ -111,6 +96,53 @@
             
             body.dark-mode hr {
               border-top: 1px solid #333;
+            }
+            
+            /* 响应式样式增强 */
+            @media (max-width: 768px) {
+              .profile-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 0.5em;
+              }
+              
+              .profile-image {
+                margin-right: 0;
+              }
+              
+              .profile-info h2 {
+                margin-top: 0.2em;
+              }
+              
+              /* 调整新闻项目结构以适应小屏幕 */
+              ul.news li {
+                flex-direction: column;
+                margin-bottom: 0.8em;
+              }
+              
+              .news-date {
+                min-width: auto;
+                margin-bottom: 0.2em;
+                color: #666;
+              }
+              
+              .styled-link {
+                margin: 0.1em 0.1em 0.15em 0;
+              }
+            }
+            
+            /* 针对更小屏幕的优化 */
+            @media (max-width: 480px) {
+              .profile-image img {
+                height: 160px;
+                width: 120px;
+              }
+              
+              .styled-link {
+                font-size: 12px;
+                padding: 0.15em 0.5em;
+              }
             }
           </style>
         

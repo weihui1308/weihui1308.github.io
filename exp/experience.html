@@ -18,7 +18,47 @@
               position: relative;
             }
             
-            /* 移除内联的主题切换按钮样式，使用主CSS文件中的样式 */
+            /* 经验页面特有样式 */
+            ul ul {
+              margin-top: 0.3em;
+              margin-bottom: 1em;
+            }
+            
+            ul > li {
+              margin-bottom: 0.5em;
+            }
+            
+            ul > li > b {
+              font-weight: 600;
+            }
+            
+            /* 响应式调整 */
+            @media (max-width: 768px) {
+              ul {
+                padding-left: 1.2em;
+              }
+              
+              ul ul {
+                padding-left: 1em;
+                margin-top: 0.2em;
+                margin-bottom: 0.8em;
+              }
+            }
+            
+            /* 更小屏幕优化 */
+            @media (max-width: 480px) {
+              ul {
+                padding-left: 1em;
+              }
+              
+              ul ul {
+                padding-left: 0.8em;
+              }
+              
+              ul > li {
+                margin-bottom: 0.6em;
+              }
+            }
         </style>
         
         <!-- 添加主题切换脚本 -->
@@ -47,34 +87,38 @@
     <div>
         <h2>Education</h2>
         <ul>
-            <li><b>Wuhan University (Sept. 2021 - Now)</b></li>
+            <li><b>Wuhan University (Sept. 2021 - Now)</b>
             <ul>
                 <li>Ph.D, Computer Science</li>
                 <li>Advisor: Zheng Wang</li>
             </ul>
+            </li>
 
-            <li><b>Zhengzhou University (Sept. 2018 - July 2021)</b></li>
+            <li><b>Zhengzhou University (Sept. 2018 - July 2021)</b>
             <ul>
                 <li>M.S., Software Engineering</li>
                 <li>Advisor: Mingliang Xu</li>
             </ul>
+            </li>
 
-            <li><b>Henan Agricultural University (Sept. 2014- July 2018)</b></li>
+            <li><b>Henan Agricultural University (Sept. 2014- July 2018)</b>
             <ul>
                 <li>B.S., Software Engineering</li>
             </ul>
+            </li>
         </ul> 
 
         <h2>Academic Service</h2>
         <ul>
-          <li><b>Journal Reviewer</b></li>
+          <li><b>Journal Reviewer</b>
           <ul>
             <li>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</li>
             <li>IEEE Transactions on Image Processing (TIP)</li>
             <li>IEEE Transactions on Information Forensics and Security (TIFS)</li>
             <li>Elsevier Knowledge-Based Systems</li>
           </ul>
-          <li><b>Conference Reviewer</b></li>
+          </li>
+          <li><b>Conference Reviewer</b>
           <ul>
             <li>ICML 2025</li>
             <li>CVPR 2025</li>
@@ -83,6 +127,7 @@
             <li>NeurIPS 2024</li>
             <li>ACM MM 2024</li>
           </ul>
+          </li>
       </ul>
     </div>
 </div>

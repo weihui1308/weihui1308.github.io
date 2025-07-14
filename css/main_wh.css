@@ -1,6 +1,41 @@
 html {
     background-color: #faf8f8;
     transition: background-color 0.3s ease;
+    /* 强制显示滚动条以防止页面偏移 */
+    overflow-y: scroll;
+}
+
+/* 自定义滚动条样式 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* 暗黑模式下的滚动条样式 */
+html.dark-mode ::-webkit-scrollbar-track {
+    background: #2a2a2a;
+}
+
+html.dark-mode ::-webkit-scrollbar-thumb {
+    background: #555;
+}
+
+html.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: #777;
 }
 
 body {

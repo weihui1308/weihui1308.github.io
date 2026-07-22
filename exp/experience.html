@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
     <head>
         <meta charset="utf-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Work experience, education and academic service of Hui Wei, Postdoctoral Researcher at the University of Oulu.">
+        <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
         <title>Experience | Hui Wei</title>
         <link rel="stylesheet" href="../css/main_wh.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,61 +18,13 @@
               margin: 0 auto;
               position: relative;
             }
-            
-            /* 经验页面特有样式 */
-            ul ul {
-              margin-top: 0.3em;
-              margin-bottom: 1em;
-            }
-            
-            ul > li {
-              margin-bottom: 0.5em;
-            }
-            
-            ul > li > b {
-              font-weight: 600;
-            }
-            
-            /* 响应式调整 */
-            @media (max-width: 768px) {
-              ul {
-                padding-left: 1.2em;
-              }
-              
-              ul ul {
-                padding-left: 1em;
-                margin-top: 0.2em;
-                margin-bottom: 0.8em;
-              }
-            }
-            
-            /* 更小屏幕优化 */
-            @media (max-width: 480px) {
-              ul {
-                padding-left: 1em;
-              }
-              
-              ul ul {
-                padding-left: 0.8em;
-              }
-              
-              ul > li {
-                margin-bottom: 0.6em;
-              }
-            }
+
         </style>
         
-        <!-- 添加主题切换脚本 -->
-        <script src="../js/dark-mode.js"></script>
    </head>
     <body>
 
 <div class="container">
-    <!-- 添加暗黑模式切换按钮 -->
-    <button class="theme-toggle" aria-label="Toggle dark mode">
-        <span class="icon-light">🌙</span>
-        <span class="icon-dark">☀️</span>
-    </button>
 
     <div id='cssmenu'>
         <ul>
@@ -85,7 +38,7 @@
 
     <div>
       <h2>Work Experience</h2>
-        <ul>
+        <ul class="content-list">
             <li><b>University of Oulu (Sept. 2025 - Now)</b>
             <ul>
                 <li>Postdoctoral Research</li>
@@ -95,7 +48,7 @@
         </ul>
 
       <h2>Education</h2>
-        <ul>
+        <ul class="content-list">
             <li><b>Wuhan University (Sept. 2021 - July 2025)</b>
             <ul>
                 <li>Ph.D, Computer Science</li>
@@ -118,7 +71,7 @@
         </ul> 
 
       <h2>Academic Service</h2>
-        <ul>
+        <ul class="content-list">
           <li><b>Journal Reviewer</b>
           <ul>
             <li>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</li>
@@ -143,5 +96,4 @@
 </div>
 
 </body>
-
 </html>

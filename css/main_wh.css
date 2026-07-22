@@ -25,19 +25,6 @@ html {
     background: #a8a8a8;
 }
 
-/* 暗黑模式下的滚动条样式 */
-html.dark-mode ::-webkit-scrollbar-track {
-    background: #2a2a2a;
-}
-
-html.dark-mode ::-webkit-scrollbar-thumb {
-    background: #555;
-}
-
-html.dark-mode ::-webkit-scrollbar-thumb:hover {
-    background: #777;
-}
-
 body {
     margin: 0 auto;
     padding: 1.5em; /* 减小内边距 */
@@ -138,7 +125,6 @@ p {
     border-bottom: 2px solid #5183f5;
 }
 
-
 ul.news {
     list-style-type: none;
     margin-left: 0;
@@ -173,7 +159,6 @@ hr {
     margin: 1.5em 0; /* 减小分隔线间距 */
 }
 
-
 .profile-container {
     display: flex;
     flex-direction: row; /* 默认横向排列 */
@@ -200,109 +185,8 @@ hr {
     margin: 0.5em 0; /* 信息部分段落间距更小 */
 }
 
-/* Dark mode toggle 样式 - 修正位置 */
-.theme-toggle {
-    position: absolute;
-    top: 0.2em; /* 调高按钮位置 */
-    right: 1em;
-    cursor: pointer;
-    background: none;
-    border: none;
-    color: #555;
-    font-size: 1.2em;
-    padding: 0.3em;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
-    z-index: 100; /* 确保按钮显示在顶层 */
-}
-
-.theme-toggle:hover {
-    background-color: #f0f0f0;
-}
-
-.theme-toggle .icon-light {
-    display: inline;
-}
-
-.theme-toggle .icon-dark {
-    display: none;
-}
-
-body.dark-mode .theme-toggle .icon-light {
-    display: none;
-}
-
-body.dark-mode .theme-toggle .icon-dark {
-    display: inline;
-}
-
-body.dark-mode .theme-toggle {
-    color: #aaa;
-}
-
-body.dark-mode .theme-toggle:hover {
-    background-color: #2a2a2a;
-}
-
-/* 暗黑模式全局设置 */
-html.dark-mode {
-    background-color: #181818;
-}
-
-html.dark-mode body {
-    background-color: #181818;
-    color: #ddd;
-}
-
-html.dark-mode h1,
-html.dark-mode h2,
-html.dark-mode h3,
-html.dark-mode h4,
-html.dark-mode h5,
-html.dark-mode h6 {
-    color: #eee;
-}
-
-html.dark-mode h2 {
-    border-bottom: 1px solid #333;
-}
-
-html.dark-mode a {
-    color: #7b9dff;
-}
-
-html.dark-mode a:hover {
-    border-bottom: 1px solid #7b9dff;
-}
-
-html.dark-mode #cssmenu ul {
-    border-bottom: 1px solid #333;
-}
-
-html.dark-mode #cssmenu li a {
-    color: #aaa;
-}
-
-html.dark-mode #cssmenu li a:hover,
-html.dark-mode #cssmenu li.active a {
-    color: #7b9dff;
-    border-bottom: 2px solid #7b9dff;
-}
-
-html.dark-mode .news li:before {
-    color: #7b9dff;
-}
-
-html.dark-mode hr {
-    border-top: 1px solid #333;
-}
-
 /* 响应式布局增强 */
 @media (max-width: 768px) {
-    .theme-toggle {
-        top: 0.2em;
-        right: 0.5em;
-    }
     
     body {
         padding: 1em 0.8em;
@@ -375,5 +259,67 @@ html.dark-mode hr {
     /* 更小设备上的列表样式 */
     ul {
         padding-left: 1em;
+    }
+}
+
+/* ---- Content lists shared by Experience / Honors / Resources ---------- */
+/* Previously each page rolled its own list rules with different indents and
+   spacing, which is why Resources looked different. One definition now. */
+.content-block {
+    margin-bottom: 1.6em;
+}
+
+b.block-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.3em;
+}
+
+ul.content-list {
+    margin: 0.3em 0 1em;
+    padding-left: 1.6em;
+}
+
+ul.content-list > li {
+    margin-bottom: 0.5em;
+    line-height: 1.6;
+}
+
+/* nested lists (Experience) sit slightly tighter */
+ul.content-list ul {
+    margin: 0.3em 0 0.6em;
+    padding-left: 1.4em;
+    list-style-type: circle;
+}
+
+ul.content-list ul > li {
+    margin-bottom: 0.25em;
+}
+
+ul.content-list b {
+    font-weight: 600;
+}
+
+ul.content-list a {
+    word-break: break-word;
+}
+
+@media (max-width: 768px) {
+    ul.content-list {
+        padding-left: 1.3em;
+    }
+
+    ul.content-list ul {
+        padding-left: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    ul.content-list {
+        padding-left: 1.1em;
+    }
+
+    ul.content-list > li {
+        margin-bottom: 0.6em;
     }
 }

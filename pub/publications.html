@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
     <head>
         <meta charset="utf-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Publications by Hui Wei on physical adversarial attacks, AI safety and privacy-preserving computer vision.">
+        <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
         <title>Publications | Hui Wei</title>
         <link rel="stylesheet" href="../css/main_wh.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
         <style>
           a {
@@ -19,35 +20,35 @@
             transition: color 0.2s ease, border-color 0.2s ease;
             border-bottom: 1px solid transparent;
           }
-          
+
           a:hover {
             border-bottom-color: #5183f5;
           }
-          
+
           a.paper {
             font-weight: 600;
             font-size: 14px;
           }
-          
+
           b.paper {
             font-weight: 600;
             font-size: 14px;
           }
-          
+
           h3 {
             font-weight: 600;
             margin-top: 0.8em;
             margin-bottom: 0.4em;
           }
-          
+
           strong {
             font-weight: 600;
           }
-          
+
           em, i {
             font-style: italic;
           }
-          
+
           /* 更紧凑的论文卡片 */
           div.paper, div.paper1 {
             clear: both;
@@ -65,7 +66,7 @@
             transform: translateY(-2px); /* 减小悬停时的移动距离 */
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
           }
-          
+
           div.paper {
             background: #fff;
             border: 1px solid #eaeaea;
@@ -75,74 +76,184 @@
             background: #f5f7f9;
             border: 1px solid #eaeaea;
           }
-          
+
           div.paper div, div.paper1 div {
             padding-left: 180px; /* 减小左内边距，使右侧内容更靠近图片 */
           }
-          
+
           img.paper {
             float: left;
             width: 160px; /* 减小图片宽度 */
             border-radius: 5px;
             transition: transform 0.3s ease;
           }
-          
+
           /* 使标题与作者之间距离更小 */
           div.paper div strong, div.paper1 div strong {
             line-height: 1.4;
             margin-bottom: 0.3em;
             display: inline-block;
           }
-          
+
           /* 减小各行之间的间距 */
           div.paper div br, div.paper1 div br {
             line-height: 1.3;
           }
-          
+
           /* 使链接更加紧凑 */
           div.paper a, div.paper1 a {
             margin-right: 0.2em;
             word-break: break-word; /* 确保链接可以在小屏幕上换行 */
           }
-          
+
           .container {
             max-width: 880px;
             margin: 0 auto;
             position: relative;
           }
-          
-          /* 暗黑模式下的论文卡片样式 */
-          html.dark-mode div.paper, body.dark-mode div.paper {
-            background: #222;
-            border: 1px solid #333;
-            color: #ddd;
+
+          /* ---- BibTeX panel ---- */
+          .bib-toggle {
+            cursor: pointer;
           }
-          
-          html.dark-mode div.paper1, body.dark-mode div.paper1 {
-            background: #1e1e1e;
-            border: 1px solid #333;
-            color: #ddd;
+
+          .bib-toggle.is-open {
+            border-bottom-color: #5183f5;
           }
-          
-          html.dark-mode a, body.dark-mode a {
-            color: #7b9dff;
+
+          .bib {
+            position: relative;
+            margin: 0.6em 0 0.2em;
+            padding: 0;
           }
-          
-          html.dark-mode a:hover, body.dark-mode a:hover {
-            border-bottom-color: #7b9dff;
+
+          .bib[hidden] {
+            display: none;
           }
-          
+
+          .bib pre {
+            margin: 0;
+            padding: 0.8em 1em;
+            background: #f5f7f9;
+            border: 1px solid #e3e7ec;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.82em;
+            line-height: 1.45;
+            color: #33383f;
+          }
+
+          .bib code {
+            font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo,
+                         Consolas, monospace;
+            white-space: pre;
+          }
+
+          .bib-copy {
+            position: absolute;
+            top: 0.45em;
+            right: 0.5em;
+            font: inherit;
+            font-size: 0.75em;
+            line-height: 1;
+            padding: 0.35em 0.6em;
+            color: #5183f5;
+            background: #fff;
+            border: 1px solid #d7dee8;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease;
+          }
+
+          .bib-copy:hover {
+            background: #5183f5;
+            color: #fff;
+            border-color: #5183f5;
+          }
+
+          /* the cards give every descendant div a big left pad; opt out */
+          div.paper div.bib, div.paper1 div.bib {
+            padding-left: 0;
+          }
+
+          /* ---- Other publications (compact list) ---- */
+          /* no border here: the h2 above already draws one, and two rules
+             stacked a few pixels apart looks like a mistake */
+          h3.section-heading {
+            margin-top: 1.7em;
+            margin-bottom: 0.2em;
+            font-size: 1.15em;
+          }
+
+          h4.pub-year {
+            margin: 1.3em 0 0.2em;
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: #8a94a3;
+            font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo,
+                         Consolas, monospace;
+          }
+
+          h4.pub-year:first-of-type {
+            margin-top: 0.9em;
+          }
+
+          ol.pub-list {
+            margin: 0.4em 0 0;
+            padding-left: 2.1em;
+          }
+
+          ol.pub-list > li {
+            margin-bottom: 0.9em;
+            padding-left: 0.3em;
+            line-height: 1.5;
+            font-size: 0.93em;
+          }
+
+          ol.pub-list > li::marker {
+            color: #8a94a3;
+            font-size: 0.85em;
+          }
+
+          .pub-title {
+            font-weight: 600;
+            color: #1d2129;
+          }
+
+          .pub-authors {
+            color: #4a5158;
+          }
+
+          .pub-venue {
+            color: #4a5158;
+          }
+
+          .pub-links {
+            white-space: nowrap;
+          }
+
+          @media (max-width: 480px) {
+            ol.pub-list > li {
+              font-size: 0.9em;
+            }
+
+            .pub-links {
+              white-space: normal;
+            }
+          }
+
           /* 响应式布局增强 */
           @media (max-width: 768px) {
             div.paper, div.paper1 {
               padding: 1em;
             }
-            
+
             div.paper div, div.paper1 div {
               padding-left: 0;
               margin-top: 1em;
             }
-            
+
             img.paper {
               float: none;
               display: block;
@@ -150,36 +261,31 @@
               width: 140px; /* 略微减小图片尺寸 */
             }
           }
-          
+
           /* 针对更小屏幕的优化 */
           @media (max-width: 480px) {
             div.paper, div.paper1 {
               padding: 0.8em;
               margin: 1em 0;
             }
-            
+
             img.paper {
               width: 120px; /* 更小设备上进一步减小图片 */
             }
-            
+
             /* 减小论文标题字体大小 */
             div.paper div strong, div.paper1 div strong {
               font-size: 0.95em;
             }
           }
         </style>
-        
-        <!-- 添加主题切换脚本 -->
-        <script src="../js/dark-mode.js"></script>
+
+        <!-- BibTeX 展开/收起脚本 -->
+        <script src="../js/bibtex.js"></script>
    </head>
     <body>
 
 <div class="container">
-    <!-- 添加暗黑模式切换按钮 -->
-    <button class="theme-toggle" aria-label="Toggle dark mode">
-        <span class="icon-light">🌙</span>
-        <span class="icon-dark">☀️</span>
-    </button>
 
     <div id='cssmenu'>
         <ul>
@@ -192,46 +298,279 @@
     </div>
 
     <div>
-        <h2>Publications</h2>
+        <h2>Selected Publications</h2>
     </div>
 
-    <div class="paper1" id="TP"><img class="paper" src="../images/papers/CAP.jpg" alt="Revisiting Adversarial Patches for Designing Camera-Agnostic Attacks against Person Detection" />
+    <!-- <h3 class="section-heading">Selected Publications</h3> -->
+
+    <div class="paper" id="pub-cap"><img class="paper" src="../images/papers/CAP.jpg" alt="Revisiting Adversarial Patches for Designing Camera-Agnostic Attacks against Person Detection" />
         <div> <strong>Revisiting Adversarial Patches for Designing Camera-Agnostic Attacks against Person Detection</strong><br />
             <strong>Hui Wei</strong>, Zhixiang Wang, Kewei Zhang, Jiaqi Hou, Yuanwei Liu, Hao Tang, Zheng Wang <br />
             <em>Advances in Neural Information Processing Systems (<strong>NeurIPS</strong>)</em>, 2024 <br />
-            [ <a href='https://nips.cc/virtual/2024/poster/96825'>Paper</a> ] [ <a href='https://github.com/weihui1308/CAP'>Code</a> ] [ <a href='https://camera-agnostic.github.io/'>Project Page</a> ]<br />
+            [ <a href='https://nips.cc/virtual/2024/poster/96825'>Paper</a> ] [ <a href='https://github.com/weihui1308/CAP'>Code</a> ] [ <a href='https://camera-agnostic.github.io/'>Project Page</a> ] [ <a class="bib-toggle" href="#bib-cap" role="button" aria-expanded="false" aria-controls="bib-cap">BibTeX</a> ]<br />
+            <div class="bib" id="bib-cap" hidden>
+                <button class="bib-copy" type="button">Copy</button>
+                <pre><code>@inproceedings{wei2024revisiting,
+  title={Revisiting Adversarial Patches for Designing Camera-Agnostic Attacks against Person Detection},
+  author={Wei, Hui and Wang, Zhixiang and Zhang, Kewei and Hou, Jiaqi and Liu, Yuanwei and Tang, Hao and Wang, Zheng},
+  booktitle={Advances in Neural Information Processing Systems},
+  volume={37},
+  pages={8047--8064},
+  year={2024}
+}</code></pre>
+            </div>
         </div>
         <div class="spanner"></div>
     </div>
-
-    <div class="paper" id="TP"><img class="paper" src="../images/papers/TPAMISurvey.jpg" alt="Physical Adversarial Attack Meets Computer Vision: A Decade Survey" />
+    <!-- <div class="paper" id="pub-pami"><img class="paper" src="../images/papers/TPAMISurvey.jpg" alt="Physical Adversarial Attack Meets Computer Vision: A Decade Survey" />
         <div> <strong>Physical Adversarial Attack Meets Computer Vision: A Decade Survey</strong><br />
-            <strong>Hui Wei</strong>, Hao Tang, Xuemei Jia, Zhixiang Wang, Hanxun Yu, Zhubo Li, Shin'ichi Satoh, Luc Van Gool, Zheng Wang<br />
+            <strong>Hui Wei</strong>, Hao Tang, Xuemei Jia, Zhixiang Wang, Hanxun Yu, Zhubo Li, Shin'ichi Satoh, Luc Van Gool, Zheng Wang <br />
             <em>IEEE Transactions on Pattern Analysis and Machine Intelligence (<strong>TPAMI</strong>)</em>, 2024 <br />
-            [ <a href='https://ieeexplore.ieee.org/document/10602786'>Paper</a> ] [ <a href='https://arxiv.org/abs/2209.15179'>arXiv</a> ] [ <a href='https://github.com/weihui1308/PAA'>GitHub</a> ] <br />
+            [ <a href='https://ieeexplore.ieee.org/document/10602786'>Paper</a> ] [ <a href='https://arxiv.org/abs/2209.15179'>arXiv</a> ] [ <a href='https://github.com/weihui1308/PAA'>GitHub</a> ] [ <a class="bib-toggle" href="#bib-pami" role="button" aria-expanded="false" aria-controls="bib-pami">BibTeX</a> ]<br />
+            <div class="bib" id="bib-pami" hidden>
+                <button class="bib-copy" type="button">Copy</button>
+                <pre><code>@article{wei2024physical,
+  title   = {Physical Adversarial Attack Meets Computer Vision: A Decade Survey},
+  author  = {Wei, Hui and Tang, Hao and Jia, Xuemei and Wang, Zhixiang and
+             Yu, Hanxun and Li, Zhubo and Satoh, Shin'ichi and Van Gool, Luc and
+             Wang, Zheng},
+  journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume  = {46},
+  number  = {12},
+  pages   = {9797--9817},
+  year    = {2024},
+  doi     = {10.1109/TPAMI.2024.3430860}
+}</code></pre>
+            </div>
+        </div>
+        <div class="spanner"></div>
+    </div> -->
+    <div class="paper1" id="pub-mba"><img class="paper" src="../images/papers/MBA.png" alt="Moir&eacute; Backdoor Attack (MBA): A Novel Trigger for Pedestrian Detectors in the Physical World" />
+        <div> <strong>Moir&eacute; Backdoor Attack (MBA): A Novel Trigger for Pedestrian Detectors in the Physical World</strong><br />
+            <strong>Hui Wei</strong>, Hanxun Yu, Kewei Zhang, Zhixiang Wang, Jianke Zhu, Zheng Wang <br />
+            <em>Proceedings of the 31st ACM International Conference on Multimedia (<strong>ACM MM</strong>)</em>, 2023 <br />
+            [ <a href='https://dl.acm.org/doi/10.1145/3581783.3611910'>Paper</a> ] [ <a href='https://github.com/weihui1308/Moire-Backdoor-Attack'>Code</a> ] [ <a href='https://docs.google.com/presentation/d/1yrX1a-IpSY4M6CtN1ic4L6KQBsssvsLe/edit?usp=sharing&amp;ouid=101418432994653050596&amp;rtpof=true&amp;sd=true'>Poster</a> ] [ <a class="bib-toggle" href="#bib-mba" role="button" aria-expanded="false" aria-controls="bib-mba">BibTeX</a> ]<br />
+            <div class="bib" id="bib-mba" hidden>
+                <button class="bib-copy" type="button">Copy</button>
+                <pre><code>@inproceedings{wei2023moire,
+  title={Moir{\'e} Backdoor Attack (MBA): A Novel Trigger for Pedestrian Detectors in the Physical World},
+  author={Wei, Hui and Yu, Hanxun and Zhang, Kewei and Wang, Zhixiang and Zhu, Jianke and Wang, Zheng},
+  booktitle={Proceedings of the ACM International Conference on Multimedia},
+  pages={8828--8838},
+  year={2023}
+}</code></pre>
+            </div>
         </div>
         <div class="spanner"></div>
     </div>
-            
-    <div class="paper1" id="TP"><img class="paper" src="../images/papers/MBA.png" alt="Moiré Backdoor Attack (MBA): A Novel Trigger for Pedestrian Detectors in the Physical World" />
-        <div> <strong>Moiré Backdoor Attack (MBA): A Novel Trigger for Pedestrian Detectors in the Physical World</strong><br />
-            <strong>Hui Wei</strong>, Hanxun Yu, Kewei Zhang, Zhixiang Wang, Jianke Zhu, Zheng Wang<br />
-            <em>Proceedings of the 31st ACM International Conference on Multimedia (<strong>ACM MM</strong>)</em>, 2023 <br />
-            [ <a href='https://dl.acm.org/doi/10.1145/3581783.3611910'>Paper</a> ] [ <a href='https://github.com/weihui1308/Moire-Backdoor-Attack'>Code</a> ] [ <a href='https://docs.google.com/presentation/d/1yrX1a-IpSY4M6CtN1ic4L6KQBsssvsLe/edit?usp=sharing&ouid=101418432994653050596&rtpof=true&sd=true'>Poster</a> ] <br />
+    <div class="paper" id="pub-hotcold"><img class="paper" src="../images/papers/HOTCOLDBlock.png" alt="HOTCOLD Block: Fooling Thermal Infrared Detectors with a Novel Wearable Design" />
+        <div> <strong>HOTCOLD Block: Fooling Thermal Infrared Detectors with a Novel Wearable Design</strong><br />
+            <strong>Hui Wei</strong>, Zhixiang Wang, Xuemei Jia, Yinqiang Zheng, Hao Tang, Shin'ichi Satoh, Zheng Wang <br />
+            <em>Proceedings of the AAAI Conference on Artificial Intelligence (<strong>AAAI</strong>)</em>, 2023, Oral <br />
+            [ <a href='https://ojs.aaai.org/index.php/AAAI/article/view/26777/'>Paper</a> ] [ <a href='https://github.com/weihui1308/HOTCOLDBlock'>Code</a> ] [ <a class="bib-toggle" href="#bib-hotcold" role="button" aria-expanded="false" aria-controls="bib-hotcold">BibTeX</a> ]<br />
+            <div class="bib" id="bib-hotcold" hidden>
+                <button class="bib-copy" type="button">Copy</button>
+                <pre><code>@inproceedings{wei2023hotcold,
+  title     = {HOTCOLD Block: Fooling Thermal Infrared Detectors with a Novel
+               Wearable Design},
+  author    = {Wei, Hui and Wang, Zhixiang and Jia, Xuemei and Zheng, Yinqiang and
+               Tang, Hao and Satoh, Shin'ichi and Wang, Zheng},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)},
+  volume    = {37},
+  number    = {12},
+  pages     = {15233--15241},
+  year      = {2023},
+  doi       = {10.1609/aaai.v37i12.26777}
+}</code></pre>
+            </div>
         </div>
         <div class="spanner"></div>
     </div>
 
-    <div class="paper" id="TP"><img class="paper" src="../images/papers/HOTCOLDBlock.png" alt="HOTCOLD Block: Fooling Thermal Infrared Detectors with a Novel Wearable Design" />
-        <div> <strong>HOTCOLD Block: Fooling Thermal Infrared Detectors with a Novel Wearable Design</strong><br />
-            <strong>Hui Wei</strong>, Zhixiang Wang, Xuemei Jia, Yinqiang Zheng, Hao Tang, Shin'ichi Satoh, Zheng Wang<br />
-            <em>Proceedings of the AAAI Conference on Artificial Intelligence (<strong>AAAI</strong>)</em>, 2023, Oral <br />
-            [ <a href='https://ojs.aaai.org/index.php/AAAI/article/view/26777/'>Paper</a> ] [ <a href='https://github.com/weihui1308/HOTCOLDBlock'>Code</a> ] <br />
-        </div>
-        <div class="spanner"></div>
-    </div>
-    
+    <!-- <h3 class="section-heading">Other Publications</h3> -->
+
+
+
+
+
+
+
+
+
+
+    <h4 class="pub-year">2026</h4>
+    <ol class="pub-list" reversed start="9">
+        <li id="pub-cononicalphys">
+            <span class="pub-title">CanonicalPhys: Pose-Robust Remote Photoplethysmography via Canonical-Space Priors</span><br />
+            <span class="pub-authors"><strong>Hui Wei</strong>, Seyedata Jodeiri Seyedian, Xiaobai Li, Guoying Zhao</span><br />
+            <span class="pub-venue"><em>IEEE International Joint Conference on Biometrics (<strong>IJCB</strong>)</em>, 2026</span>
+            <span class="pub-links">[ <a href='https://arxiv.org/abs/2607.15995'>arXiv</a> ] [ <a href='https://github.com/infraface/CanonicalPhys'>Code</a> ] [ <a class="bib-toggle" href="#bib-cononicalphys" role="button" aria-expanded="false" aria-controls="bib-cononicalphys">BibTeX</a> ]</span>
+            <!-- add a code link when released, e.g. [ <a href='https://github.com/...'>Code</a> ] -->
+            <div class="bib" id="bib-cononicalphys" hidden>
+                <button class="bib-copy" type="button">Copy</button>
+                <pre><code>@inproceedings{wei2026canonicalphys,
+  title={CanonicalPhys: Pose-Robust Remote Photoplethysmography via Canonical-Space Priors},
+  author={Wei, Hui and Jodeiri Seyedian, Seyedata and Li, Xiaobai and Zhao Guoying},
+  booktitle={IEEE International Joint Conference on Biometrics},
+  year={2025},
+  organization={IEEE}
+}</code></pre>
+            </div>
+        </li>
+        <li id="pub-rgsdg">
+            <span class="pub-title">Reinforcement-Guided Synthetic Data Generation for Privacy-Sensitive Identity Recognition</span><br />
+            <span class="pub-authors">Xuemei Jia, Jiawei Du, <strong>Hui Wei</strong>, Jun Chen, Joey Tianyi Zhou, Zheng Wang</span><br />
+            <span class="pub-venue"><em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (<strong>CVPR</strong>)</em>, 2026</span>
+            <span class="pub-links">[ <a href='https://arxiv.org/abs/2604.07884'>arXiv</a> ] [ <a class="bib-toggle" href="#bib-rgsdg" role="button" aria-expanded="false" aria-controls="bib-rgsdg">BibTeX</a> ]</span>
+            <!-- add a code link when released, e.g. [ <a href='https://github.com/...'>Code</a> ] -->
+            <div class="bib" id="bib-rgsdg" hidden>
+                <button class="bib-copy" type="button">Copy</button>
+                <pre><code>@inproceedings{jia2026reinforcement,
+  title={Reinforcement-Guided Synthetic Data Generation for Privacy-Sensitive Identity Recognition},
+  author={Jia, Xuemei and Du, Jiawei and Wei, Hui and Chen, Jun and Zhou, Joey Tianyi and Wang, Zheng},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={20034--20044},
+  year={2026}
+}</code></pre>
+            </div>
+        </li>
+    </ol>
+
+    <h4 class="pub-year">2025</h4>
+    <ol class="pub-list" reversed start="7">
+        <li id="pub-fab">
+            <span class="pub-title">FAB-Attack: Fabric-Aware Adversarial Attacks on Person Detectors under Motion Blur</span><br />
+            <span class="pub-authors">Jiaqi Hou, Kewei Zhang, Tianyu Yang, Chengyu Jia, Qiqi Lin, <strong>Hui Wei</strong>, Zheng Wang</span><br />
+            <span class="pub-venue"><em>ACM International Conference on Multimedia (<strong>ACM MM</strong>)</em>, 2025</span>
+            <span class="pub-links">[ <a href='https://doi.org/10.1145/3746027.3755016'>Paper</a> ] [ <a class="bib-toggle" href="#bib-fab" role="button" aria-expanded="false" aria-controls="bib-fab">BibTeX</a> ]</span>
+            <!-- add a code link when released, e.g. [ <a href='https://github.com/...'>Code</a> ] -->
+            <div class="bib" id="bib-fab" hidden>
+                <button class="bib-copy" type="button">Copy</button>
+                <pre><code>@inproceedings{hou2025fab,
+  title={FAB-Attack: Fabric-Aware Adversarial Attacks on Person Detectors under Motion Blur},
+  author={Hou, Jiaqi and Zhang, Kewei and Yang, Tianyu and Jia, Chengyu and Lin, Qiqi and Wei, Hui and Wang, Zheng},
+  booktitle={Proceedings of the ACM International Conference on Multimedia},
+  pages={7625--7634},
+  year={2025}
+}</code></pre>
+            </div>
+        </li>
+        <li id="pub-jailbreak">
+            <span class="pub-title">Universally Unfiltered and Unseen: Input-Agnostic Multimodal Jailbreaks against Text-to-Image Model Safeguards</span><br />
+            <span class="pub-authors">Song Yan, <strong>Hui Wei</strong>, Jinlong Fei, Guoliang Yang, Zhengyu Zhao, Zheng Wang</span><br />
+            <span class="pub-venue"><em>ACM International Conference on Multimedia (<strong>ACM MM</strong>)</em>, 2025</span>
+            <span class="pub-links">[ <a href='https://doi.org/10.1145/3746027.3754928'>Paper</a> ] [ <a href='https://arxiv.org/abs/2508.05658'>arXiv</a> ] [ <a href='https://github.com/yszbb/U3-Attack'>Code</a> ] [ <a class="bib-toggle" href="#bib-jailbreak" role="button" aria-expanded="false" aria-controls="bib-jailbreak">BibTeX</a> ]</span>
+            <!-- add a code link when released, e.g. [ <a href='https://github.com/...'>Code</a> ] --> 
+            <div class="bib" id="bib-jailbreak" hidden>
+                <button class="bib-copy" type="button">Copy</button>
+                <pre><code>@inproceedings{yan2025universally,
+  title={Universally Unfiltered and Unseen: Input-Agnostic Multimodal Jailbreaks against Text-to-Image Model Safeguards},
+  author={Yan, Song and Wei, Hui and Fei, Jinlong and Yang, Guoliang and Zhao, Zhengyu and Wang, Zheng},
+  booktitle={Proceedings of the ACM International Conference on Multimedia},
+  pages={11279--11287},
+  year={2025}
+}</code></pre>
+            </div>
+        </li>
+        <li id="pub-projattacker">
+            <span class="pub-title">ProjAttacker: A Configurable Physical Adversarial Attack for Face Recognition via Projector</span><br />
+            <span class="pub-authors">Yuanwei Liu, <strong>Hui Wei</strong>, Chengyu Jia, Ruqi Xiao, Weijian Ruan, Xingxing Wei, Joey Tianyi Zhou, Zheng Wang</span><br />
+            <span class="pub-venue"><em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (<strong>CVPR</strong>)</em>, 2025</span>
+            <span class="pub-links">[ <a href='https://openaccess.thecvf.com/content/CVPR2025/html/Liu_ProjAttacker_A_Configurable_Physical_Adversarial_Attack_for_Face_Recognition_via_CVPR_2025_paper.html'>Paper</a> ] [ <a class="bib-toggle" href="#bib-projattacker" role="button" aria-expanded="false" aria-controls="bib-projattacker">BibTeX</a> ]</span>
+            <!-- add a code link when released, e.g. [ <a href='https://github.com/...'>Code</a> ] -->
+            <div class="bib" id="bib-projattacker" hidden>
+                <button class="bib-copy" type="button">Copy</button>
+                <pre><code>@inproceedings{liu2025projattacker,
+  title={ProjAttacker: A Configurable Physical Adversarial Attack for Face Recognition via Projector},
+  author={Liu, Yuanwei and Wei, Hui and Jia, Chengyu and Xiao, Ruqi and Ruan, Weijian and Wei, Xingxing and Zhou, Joey Tianyi and Wang, Zheng},
+  booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
+  pages={21248--21257},
+  year={2025}
+}</code></pre>
+            </div>
+        </li>
+        <li id="pub-manyinone">
+            <span class="pub-title">Balancing Privacy and Performance: A Many-in-One Approach for Image Anonymization</span><br />
+            <span class="pub-authors">Xuemei Jia, Jiawei Du, <strong>Hui Wei</strong>, Ruinian Xue, Zheng Wang, Hongyuan Zhu, Jun Chen</span><br />
+            <span class="pub-venue"><em>AAAI Conference on Artificial Intelligence (<strong>AAAI</strong>)</em>, 2025</span>
+            <span class="pub-links">[ <a href='https://doi.org/10.1609/aaai.v39i17.33936'>Paper</a> ] [ <a class="bib-toggle" href="#bib-manyinone" role="button" aria-expanded="false" aria-controls="bib-manyinone">BibTeX</a> ]</span>
+            <!-- add a code link when released, e.g. [ <a href='https://github.com/...'>Code</a> ] -->
+            <div class="bib" id="bib-manyinone" hidden>
+                <button class="bib-copy" type="button">Copy</button>
+                <pre><code>@inproceedings{jia2025balancing,
+  title={Balancing Privacy and Performance: A Many-in-One Approach for Image Anonymization},
+  author={Jia, Xuemei and Du, Jiawei and Wei, Hui and Xue, Ruinian and Wang, Zheng and Zhu, Hongyuan and Chen, Jun},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={39},
+  number={17},
+  pages={17608--17616},
+  year={2025}
+}</code></pre>
+            </div>
+        </li>
+        <li id="pub-eventpatch">
+            <span class="pub-title">Adversarial Event Patch for Spiking Neural Networks</span><br />
+            <span class="pub-authors">Song Yan, Jinlong Fei, <strong>Hui Wei</strong>, Bingbing Zhao, Zheng Wang, Guoliang Yang</span><br />
+            <span class="pub-venue"><em>Knowledge-Based Systems (<strong>KBS</strong>)</em>, 2025</span>
+            <span class="pub-links">[ <a href='https://doi.org/10.1016/j.knosys.2024.112865'>Paper</a> ] [ <a href='https://github.com/yszbb/AE-Patch'>Code</a> ] [ <a class="bib-toggle" href="#bib-eventpatch" role="button" aria-expanded="false" aria-controls="bib-eventpatch">BibTeX</a> ]</span>
+            <!-- add a code link when released, e.g. [ <a href='https://github.com/...'>Code</a> ] -->
+            <div class="bib" id="bib-eventpatch" hidden>
+                <button class="bib-copy" type="button">Copy</button>
+                <pre><code>@article{yan2025adversarial,
+  title={Adversarial Event Patch for Spiking Neural Networks},
+  author={Yan, Song and Fei, Jinlong and Wei, Hui and Zhao, Bingbing and Wang, Zheng and Yang, Guoliang},
+  journal={Knowledge-Based Systems},
+  volume={309},
+  pages={112865},
+  year={2025},
+  publisher={Elsevier}
+}</code></pre>
+            </div>
+        </li>
+    </ol>
+
+    <h4 class="pub-year">2024</h4>
+    <ol class="pub-list" reversed start="2">
+        <li id="pub-stochanon">
+            <span class="pub-title">Physical Adversarial Attack Meets Computer Vision: A Decade Survey</span><br />
+            <span class="pub-authors"><strong>Hui Wei</strong>, Hao Tang, Xuemei Jia, Zhixiang Wang, Hanxun Yu, Zhubo Li, Shin'ichi Satoh, Luc Van Gool, Zheng Wang</span><br />
+            <span class="pub-venue"><em>IEEE Transactions on Pattern Analysis and Machine Intelligence (<strong>TPAMI</strong>)</em>, 2024</span>
+            <span class="pub-links">[ <a href='https://ieeexplore.ieee.org/document/10602786'>Paper</a> ] [ <a href='https://arxiv.org/abs/2209.15179'>arXiv</a> ] [ <a href='https://github.com/weihui1308/PAA'>GitHub</a> ] [ <a class="bib-toggle" href="#bib-stochanon" role="button" aria-expanded="false" aria-controls="bib-stochanon">BibTeX</a> ]</span>
+            <!-- add a code link when released, e.g. [ <a href='https://github.com/...'>Code</a> ] -->
+            <div class="bib" id="bib-stochanon" hidden>
+                <button class="bib-copy" type="button">Copy</button>
+                <pre><code>@article{wei2024physical,
+  title={Physical Adversarial Attack Meets Computer Vision: A Decade Survey},
+  author={Wei, Hui and Tang, Hao and Jia, Xuemei and Wang, Zhixiang and Yu, Hanxun and Li, Zhubo and Satoh, Shin’ichi and Van Gool, Luc and Wang, Zheng},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={46},
+  number={12},
+  pages={9797--9817},
+  year={2024},
+  publisher={IEEE}
+}</code></pre>
+            </div>
+        </li>
+        <li id="pub-fedvuln">
+            <span class="pub-title">Federated Learning Vulnerabilities: Privacy Attacks with Denoising Diffusion Probabilistic Models</span><br />
+            <span class="pub-authors">Hongyan Gu, Xinyi Zhang, Jiang Li, <strong>Hui Wei</strong>, Baiqi Li, Xinli Huang</span><br />
+            <span class="pub-venue"><em>The ACM Web Conference (<strong>WWW</strong>)</em>, 2024</span>
+            <span class="pub-links">[ <a href='https://doi.org/10.1145/3589334.3645514'>Paper</a> ] [ <a class="bib-toggle" href="#bib-fedvuln" role="button" aria-expanded="false" aria-controls="bib-fedvuln">BibTeX</a> ]</span>
+            <!-- add a code link when released, e.g. [ <a href='https://github.com/...'>Code</a> ] -->
+            <div class="bib" id="bib-fedvuln" hidden>
+                <button class="bib-copy" type="button">Copy</button>
+                <pre><code>@inproceedings{gu2024federated,
+  title={Federated Learning Vulnerabilities: Privacy Attacks with Denoising Diffusion Probabilistic Models},
+  author={Gu, Hongyan and Zhang, Xinyi and Li, Jiang and Wei, Hui and Li, Baiqi and Huang, Xinli},
+  booktitle={Proceedings of the ACM Web Conference},
+  pages={1149--1157},
+  year={2024}
+}</code></pre>
+            </div>
+        </li>
+    </ol>
+
 </div>
 
 </body>
-</html>
+</html>       
